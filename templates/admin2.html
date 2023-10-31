@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>ADMIN DASHBOARD | ELLEXTRA</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../static/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="../static/assets/css/admin-dash.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <header class="navbar sticky-top flex-md-nowrap">
+        <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+            <a class="navbar-brand" href="{{ url_for('Home') }}">
+                <img class="logo-image" src="../static/assets/images/logo.png" alt="">
+            </a>
+        </div>
+
+        <div class="flash_message">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {%for msg in messages %}
+                        <p>{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                <div class="position-sticky py-4 px-3 sidebar-sticky">
+                    <ul class="nav flex-column h-100">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#dashboard">
+                                <i class="bi-wallet me-2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#users">
+                                <i class="bi-person me-2"></i>
+                                Users
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#settings">
+                                <i class="bi-gear me-2"></i>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#wallets">
+                                <i class="bi-gear me-2"></i>
+                                Set Wallets
+                            </a>
+                        </li>
+
+                        <li class="nav-item border-top mt-auto pt-2">
+                            <a class="nav-link" href="{{ url_for('logout') }}">
+                                <i class="bi-box-arrow-left me-2"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                <section id="dashboard">
+                <div class="title-group mb-3">
+                    <h2 class="h2 mb-0">Dashboard</h2> <br>
+                    <h4>Create User Account</h4>
+                    <form id="userForm">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter User Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter User Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="balance">Balance:</label>
+                            <input type="text" class="form-control" id="balance" name="balance" placeholder="Add User Balance">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" readonly>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="generatePassword">Generate Password</button>
+                        <br> <br>
+                        <button type="submit" class="btn btn-primary">Create User</button>
+                    </form>
+                </div>
+                </section>
+                <br><hr><br>
+                <section id="wallets">
+                <div class="title-group mb-3">
+                    <h4>SET DEPOSIT WALLET</h4>
+                    <form id="userForm" action="/set_deposit_wallet" method="post">
+                        <div class="form-group">
+                            <label for="bitcoinAddress">BITCOIN:</label>
+                            <input type="text" class="form-control" id="bitcoinAddress" name="bitcoinAddress" placeholder="Add bitcoin Address" required>
+                        </div>
+                            <br>
+                        <button type="submit" class="btn btn-primary">SET WALLETS</button>
+                    </form>
+
+                    <form id="userForm" action="/set_deposit_wallet" method="post" >
+                        <div class="form-group">
+                            <br> <br>
+                            <label for="ethereumAddress">ETHER:</label>
+                            <input type="text" class="form-control" id="ethereumAddress" name="ethereumAddress" placeholder="Add ethereumAddress" required>
+                        </div>
+                            <br>
+                        <button type="submit" class="btn btn-primary">SET WALLETS</button>
+                    </form>
+
+                    <form id="userForm" action="/set_deposit_wallet" method="post">
+                        <div class="form-group">
+                            <br> <br>
+                            <label for="usdtAddress">USDT:</label>
+                            <input type="text" class="form-control" id="usdtAddress" name="usdtAddress" placeholder="Add usdt Address" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">SET WALLETS</button>
+                    </form>
+                </div>
+                </section>
+                <br><hr><br>
+                <section id="users" class="users">
+                    <h2>Users</h2>
+                    <h4>User Accounts</h4>
+                      <table id="userTable">
+                        <thead>
+                            <tr>
+                                <th>_id</th>
+                                <th>name</th>
+                                <th>email</th>
+                                <th>Pswd</th>
+                                <th>#</th>
+                                <th>package</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             {% for index, row in data.iterrows() %}
+                                <tr>
+                                    <td>{{ row['_id'] }}</td>
+                                    <td>{{ row['username'] }}</td>
+                                    <td>{{ row['email'] }}</td>
+                                    <td>{{ row['password'] }}</td>
+                                    <td>{{ row['balance'] }}</td>
+                                    <td>{{ row['package'] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </section>
+                <br><hr><br>
+                <section id="settings">
+                    <h2>Settings</h2>
+                    <h4>User Management</h4>
+                    <form id="deleteUserForm" method="POST" action="/api/delete-user">
+                        <div class="form-group">
+                            <label for="deleteUserID">Delete User by ID:</label>
+                            <input type="text" class="form-control" id="deleteUserID" name="userId" min="1">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="deleteUser">Delete User</button>
+                    </form>
+                    <form id="editUserBalanceForm" method="post" action="'/api/edit_user_balance'">
+                        <div class="form-group">
+                        <label for="editUserID">Edit User Balance by ID:</label>
+                        <input  class="form-control" id="editUserID" name="editUserID" min="1">
+                        <label for="editUserBalance">New Balance:</label>
+                        <input type="number" class="form-control" id="editUserBalance" name="editUserBalance" min="0">
+                        <br>
+                        <button type="submit" class="btn btn-primary" id="editUser">Edit Balance</button>
+                    </div>
+                    </form>
+
+                </section>
+            </main>
+        </div>
+    </div>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12">
+                        <p class="copyright-text">Copyright © Ellextra 2023</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </main>
+    <!-- JAVASCRIPT FILES -->
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/assets/js/custom.js"></script>
+
+    <!-- Link to Bootstrap JS and jQuery -->
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+ <!--  JAVASCRIPT for deleting users  -->
+    <script>
+               $(document).ready(function () {
+                    $("#deleteUserForm").submit(function (event) {
+                        event.preventDefault();
+                        var userId = $("#deleteUserID").val();
+
+                        $.ajax({
+                            url: '/api/delete-user',
+                            method: 'POST',
+                            data: JSON.stringify({ userId: userId }),
+                            contentType: 'application/json', // Set the content type to JSON
+                            success: function (data) {
+                                // Check if the delete was successful based on the response data
+                                if (data.message) {
+                                    // Delete was successful, redirect to /admin page and show a success message
+                                    window.location.href = '/admin';
+                                    alert(data.message); // You can use flash messages here instead of an alert
+                                } else {
+                                    // Delete was not successful, show an error message
+                                    alert('User deletion failed. Please try again.');
+                                }
+                            },
+                            error: function (error) {
+                                alert('An error occurred during the request. Please try again.');
+                            }
+                        });
+                    });
+               });
+    </script>
+
+<!--    javascript for updating user balance -->
+<script>
+               $(document).ready(function () {
+                    $("#editUserBalanceForm").submit(function (event) {
+                        event.preventDefault();
+                        var userId = $("#editUserID").val();
+                        var userBalance = $("#editUserBalance").val();
+
+                        $.ajax({
+                            url: '/api/edit_user_balance',
+                            method: 'POST',
+                            data: JSON.stringify({ userId: userId, userBalance: userBalance  }),
+                            contentType: 'application/json', // Set the content type to JSON
+                            success: function (data) {
+                                // Check if the balance update was successful based on the response data
+                                if (data.message) {
+                                    // balance update was successful, redirect to /admin page and show a success message
+                                    window.location.href = '/admin';
+                                    alert(data.message); // You can use flash messages here instead of an alert
+                                } else {
+                                    // Delete was not successful, show an error message
+                                    alert('User balance update failed. Please try again.');
+                                }
+                            },
+                            error: function (error) {
+                                alert('An error occurred during the request. Please try again.');
+                            }
+                        });
+                    });
+               });
+    </script>
+</body>
+</html>

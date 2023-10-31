@@ -1,0 +1,659 @@
+/*------------------------------------------------------------------
+[Table of styles content]
+
+1 - Header
+2 - Hero
+3 - CTA
+4 - Services
+5 - Featured
+6 - Testimonials
+7 - Clients
+8 - Footer Widgets
+9 - Foot Note
+10 - modal form
+--------------------------------------------------------------------*/
+/*-----------------------------------
+    1 - Header
+------------------------------------*/
+header {
+    background-color: rgba(26, 10, 56, 0.53);
+    color: #fff;
+    z-index: 1000;
+  }
+  
+  header a {
+    color: #fff;
+  }
+  
+  header::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.02);
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+  }
+  
+  .nav-link {
+    font-family: "Rajdhani", sans-serif;
+    text-transform: uppercase;
+  }
+  
+  .login {
+    padding: 10px 20px 5px 20px;
+    font-size: 14px;
+    margin-right: 25px;
+    text-transform: uppercase;
+  }
+  .login:hover {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+  }
+  .login i {
+    color: #ee1515;
+    margin-right: 8px;
+  }
+  .navbar-brand h1 {
+    margin: 0;
+  }
+  
+  
+  .navbar-brand img {
+    width: 135px;
+  }
+  
+  .navbar-collapse .search-form .btn {
+    margin-top: 0;
+    border-radius: 0;
+    margin-left: -1px;
+  }
+  
+  .navbar-collapse .nav-link {
+    font-size: 1.125rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navbar-collapse .nav-link:hover {
+    color: #ee1515;
+  }
+  /*-----------------------------------
+    2 - Hero
+------------------------------------*/
+.hero {
+    background: url("https://img.freepik.com/free-photo/observation-urban-building-business-steel_1127-2397.jpg?w=740&t=st=1693920675~exp=1693921275~hmac=ddec3cd7c0543d6420e2c17a17228f33b233d637f1794777aa7c8196f1a05b71") no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+  }
+  
+  .hero .container {
+    position: relative;
+    z-index: 5;
+  }
+  
+  .hero .slide-content {
+    min-height: 600px;
+    color: #fff;
+  }
+  
+  .hero .slide-content span {
+    color: #ee1515;
+  }
+  
+  .hero .slide-content h1 {
+    color: #fff;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.56);
+    text-transform: uppercase;
+    -webkit-transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
+            transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
+    font-weight: bold;
+  }
+  
+  .hero .slide-content p {
+    color: #000000;
+    -webkit-transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
+            transform: matrix(0.93128, 0, 0, 0.93128, 0, 0);
+    padding: 35px 20PX 35px 30px;
+    background-color: rgba(255, 255, 255, 0.51);
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 10px;
+    margin-bottom: 0;
+    font-weight: 510;
+  }
+  
+  .hero .slide-content .btn {
+    margin-top: 50px;
+  }
+  
+  .hero .slide-content .btn:last-child {
+    margin-left: 30px;
+  }
+  
+  .hero .arr-left,
+  .hero .arr-right {
+    font-size: 3rem;
+    display: block;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 85%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    z-index: 9;
+  }
+  
+  .hero .arr-left:hover,
+  .hero .arr-right:hover {
+    cursor: pointer;
+  }
+  
+  .hero .arr-right {
+    right: 15px;
+  }
+  
+  .hero .diag-bg {
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0);
+            clip-path: polygon(0 0, 100% 100%, 100% 0);
+    background-color: rgba(240, 0, 255, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .hero .texture {
+    width: 100%;
+    height: 100%;
+    background: url("https://img.freepik.com/free-vector/bitcoin-technology-concept-with-circuit-diagram_1419-2255.jpg?w=826&t=st=1693913803~exp=1693914403~hmac=6e3c6b5d5ca4c72816f6ab999557ab41244f0ee64d38981de79be4e64c34082d") no-repeat center;
+    background-size: cover;
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .hero::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.02);
+    position: absolute;
+    left: 0;
+    bottom: 29%;
+  }
+  
+  .hero::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.02);
+    position: absolute;
+    left: 0;
+    bottom: 58%;
+  }
+  /*-----------------------------------
+    3 - CTA
+------------------------------------*/
+.cta-content {
+    padding: 30px 0 90px;
+    color: #fff;
+    background-color: #ee1515;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cta-content::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #26264b;
+    position: absolute;
+    top: -25px;
+    left: -1px;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .cta-content .subscribe-btn {
+    align-self: flex-end;
+    margin-right: 30px;
+  }
+  /*-----------------------------------
+    4 - Services
+------------------------------------*/
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .title h6 {
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .title h1 {
+    font-size: 35px;
+  }
+  
+  .title .title-blue {
+    color: #26264b;
+  }
+  
+  .title .title-primary {
+    color: #ee1515;
+  }
+  
+  .services {
+    padding: 80px 0 50px;
+  }
+  
+  .services .title {
+    margin-bottom: 20px;
+  }
+  
+  .services .media {
+    margin: 40px 0;
+  }
+  
+  .services h5 {
+    color: #26264b;
+    border-bottom: 2px solid #e7e7e7;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  /*-----------------------------------
+    5 - Featured
+------------------------------------*/
+.featured {
+    padding: 80px 0;
+    background-color: #fafafa;
+  }
+  
+  .featured p {
+    margin: 35px 0 53px;
+  }
+  
+  .featured .media i {
+    font-size: 24px;
+    color: #ee1515;
+  }
+  
+  .featured .media h5 {
+    text-transform: uppercase;
+    color: #26264b;
+  }
+  
+  .featured .btn {
+    margin-top: 80px;
+  }
+  
+  .featured-img {
+    position: relative;
+    height: 530px;
+    margin-top: 60px;
+  }
+  
+  .featured-big {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  
+  .featured-small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px 25px 0 0;
+    background-color: #fff;
+  }
+  /*-----------------------------------
+    6 - Testimonials
+------------------------------------*/
+.testimonial-and-clients {
+    background: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJwAnAMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAACAwABBAUH/8QAIxAAAwACAgICAgMAAAAAAAAAAAECElEEEQNhE0EhIhQxUv/EABkBAAMBAQEAAAAAAAAAAAAAAAIDBAABBf/EABwRAAMAAwEBAQAAAAAAAAAAAAABAgMEEhQTEf/aAAwDAQACEQMRAD8A8hIQhaegQhCGMQhEglJ38OpA9FpBqS+guTvIvEvEYpJibk7yKxJ0NxK6NybkV0Qa0C5OOTnIsstoppg/gJCEIYxCEIYxCEIYxAkiJBpBqQkikgkgkg1IyYGKQFISkYpCUjVAakUpJiOx9F4hcBcCMSnJoxKcG4OODO5BcmhyA5AcHHIhoFoe5AcinItyJaKGUgGhbQDRRCEBBIFKKlDJQUoJIkoYkVKGyh8yNlEmQ5kuUMUlEwOmSlISkOZDUj1A1QLwLwHYl4+hnzD4EYg4mjEpz6OPGc4MzkByaXIupFVADgz1IukaKkXSEXAmpM9IBoe0LpE9SJpCWvRQbQDEtC2FI2QEMkbKGSg5Q2UBCGwiiEOlBwhsyDKGyiuJKJkuZGKSShsyUzI+ZBUhYDFJeI1QMUiXINSPcgtGcGcmZyLqTTSFWhFyKqTNSFUjTcibRLck9IRaFUPpCaRLaEUhLAaG0gCdoQ0FIyRcjIDgKRsDpQmR0lUFEjoHQJgdBZBTA2UNkVI6SqCiQ0gsSpDTKEhyAaApDGBRyjjFUKobQqyaxNCbE2OpiaI7JrE0Kr+xtCqJLJqE0AMoWTUIZcsZIpDJZ2TSPhjYYiWNllMMolmiWOlmaWOllcUPhmiWNTM00MVFUUUyzQqC7EKgshysYqGNgUwXYLo47OOiUxdMlMXVCLoVVA0xNsOmKpklsnpi6FNjLYqiW2T0LoBhUwOyemIbImHLFJhpgyziY6WNlmeWNlj5odLNE0NmjLNDJoomx00aZoYqMyoNUUTY5WaVZMhGSJmM+gfY/Ip2JyKdGeQ3YdULqgXYFUJqxTsuqF0ynQFUIuhVUVTFUy6YDZNTEUyqYtsJsAS2LZAkUQEENMZLEJhpjJoNMeqDVGdMNUOmhio0KglRnyCVDFYxUaMy8zPmXmH9AuhzsrIVmVmc+huhjoB0A6BdAOwHYToCqKdANiqoW6LdAN9kbBFOhbZGQhAASFBqexk+MJS2EpYn86LSejTPiQ2fCtDJwthrG2Y13oJKtG6fAhs8dD51aY1YKOd1Wi0q0dVcVDJ4iHLUsYtamcfqtF/to7K4aC/hoPxWH5aOH+2idV/k7b4aBfDRvFZnq0cVqtAtVo7FcVICuMhVali3r0ch96BfejqVx0KrwJCa16Qt4WjnfnRDY/EtC68Yl4qQp42jOQY4AxFtfgDTLVBz5OhRDqo6qZpnzJfY2fOtmEnb2GszQSyNHSnkexq5KX2cjJ7LzrY6dqkMWxSO1PK9hrmI4fyVsv5K2NW7SGLao7y5iL/m+zg/LeyfLew/fYXso7z5vsGuYjh/JWyvkrZx79m9dHafL9i65Sf2ch+StlZ1sW92mA9qjqVyFsVXnT+zn5Vsnb2LezTFvO2bK8y2KryiCCXlbAeRhuwciiAOv0B0f//Z) center center/cover no-repeat #ee1515;
+  }
+  
+  .testimonials {
+    padding: 95px 0 85px;
+    color: #fff;
+    border-bottom: 1px solid #26264b;
+  }
+  
+  .testimonials .test-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .testimonials .test-img img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    height: 90px;
+  }
+  
+  .testimonials h5 {
+    color: #26264b;
+    margin-top: 15px;
+  }
+  
+  .testimonials span {
+    color: #c4c4c4;
+    display: inline-block;
+    margin: 0 0 17px;
+  }
+  
+  .testimonials p {
+    font-size: 17px;
+    line-height: 27px;
+  }
+  
+  .test-pagination {
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  .test-pagination span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #26264b;
+    margin-bottom: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .test-pagination span:hover {
+    cursor: pointer;
+  }
+  
+  .test-pagination span:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .test-pagination span.swiper-pagination-bullet-active {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+  }
+  /*-----------------------------------
+    7 - Clients
+------------------------------------*/
+.clients {
+    padding: 70px 0;
+    display: flex;
+  }
+  .clients .swiper-slide{
+    width: 100%;
+    max-height: 50px;
+  }
+  .clients .swiper-slide img{
+    height: 40px;
+    padding: 0 20px;
+  }
+  
+  .clients .swiper-wrapper {
+    text-align: center;
+  }
+  /*-----------------------------------
+    1 - Footer
+------------------------------------*/
+footer {
+    background: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAH8A3gMBIgACEQEDEQH/xAAbAAADAQEBAQEAAAAAAAAAAAAAAQIDBAYFB//EACQQAQEBAQACAQMEAwAAAAAAAAABAhESITFBUWEDccHwgbHh/8QAGQEAAwEBAQAAAAAAAAAAAAAAAQIDAAUE/8QAGREBAQEBAQEAAAAAAAAAAAAAAAERAhIh/9oADAMBAAIRAxEAPwD8kEnFcDsPcQhiDIMio0yzi8qQ8VFxEVFYeKFvouijokmmVClpAAgEDDMAYFiBhsZPU32qxN9FoVNTTtTalSJ0k9FfhKkpVNMr7ITHXweLTxHi9nl6fLPh8V4jjY2J4qejk4J8mkGQ4qJM0GGLSAjaCAACBgoEYODg4RjgHGIUyoMlNPSKSlpVFVU9SqdTU/RX1SnSlSVSKD6fiVy6PErh07y914YeJcbXKfEvkLyz4XGnC42FxJK4OBgYkGQAQMAwAOCOFDEnsxkGEDKixVNXWeiUqdVFVWdS6pKE0WpStTotIX5LpCmRDoA9F49TcxtwrHZx2PDHxiNYdFyiwt5LeWFhcbXKfEuJ3lhYmxtcp8SWEsZWFxpYnhcLibAfADFwwBkAGCoiCpi1gRU07UaqfVJU1GlVFQ6qdSnp1KVqdFIAuhQOl0BoPUwcT05Xdd3RZ6/4WoY4AYi59I1lrYnjWFvLG5RY3sTcp2J3lhYmxtcl4lsJYxuS8WvC4XC4y4F8FjYXECnwqAEm06m0tpaVZ6PViLUuqToqiqtZ1DpKlU0yqdLQKABSBhmejl9/srtZw5XcdnWkvr6C+mfVeXflh9KK/BWl0B1Vn0SZVgLnpPF8HC2BjO5/CbltxNjYXyxuU2NrE3JcJYwqK1sRqJ1OxnUVekaT6SqNItVpGkbU6mpplUqnSqVUiFpDgDMZ8AMz7otF+Cdh1THU0ug2tJodZ9HkGtOmvTlZeR502j6bQ5Gea0lFSHJ/YXj7XPZjhpGVyz1lv4puQsLeXNqMtx07yy3E+oh1y5dM9N9Rjt5+nn6jLXyir18s6h0jU0haE6SkIAUABwDKBgj6MF9/UTY11/HWepz/AA7NdaoqNVdn++M6S1Kl0dTaXknaXV9XmsOqzW1p06JeNM1z5vx+WuNGlW5rozVT9qzz2Vrn+eKr8nxNi/wVnefljWfGGow3HVv7/jrD9T2n0h3HLuMdx0bn3+/GH6jzdvJ3GG4yvprtlp5unn6QXTJOpil0AuhoHQG0ACDa2v/Z) center center/cover no-repeat #0c0c1d;
+  }
+  
+  /*-----------------------------------
+      8 - Footer Widgets
+  ------------------------------------*/
+  .footer-widgets {
+    padding: 100px 0;
+  }
+  
+  .footer-widgets .col-md-6 .single-widget:not(:first-child) .widget-tiltle {
+    margin: 40px 0 30px;
+  }
+   
+  .single-widget {
+    color: #a8a3a3;
+  }
+  
+  .single-widget .widget-tiltle {
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 45px;
+  }
+  
+  .single-widget i {
+    color: #ee1515;
+  }
+  
+  .single-widget h6 {
+    color: #fff;
+  }
+  
+  .single-widget .media {
+    margin-bottom: 20px;
+  }
+  
+  .contact-widget a {
+    color: #a8a3a3;
+  }
+  
+  .contact-widget i {
+    font-size: 22px;
+  }
+  
+  .twitter-widget i,
+  .twitter-widget h6 {
+    color: #a8a3a3;
+  }
+  
+  span {
+    color: #fff;
+  }
+  
+  .recent-post-widget .rcnt-img {
+    width: 68px;
+    height: 68px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .recent-post-widget .rcnt-img img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  
+  .recent-post-widget a {
+    color: #fff;
+  }
+  
+  .recent-post-widget p {
+    font-size: 13px;
+  }
+  
+  .recent-post-widget i {
+    margin-right: 10px;
+  }
+  
+  .recent-post-widget i:last-of-type {
+    margin-left: 15px;
+  }
+  
+  .tags-widget {
+    margin: -10px -10px 0 0;
+  }
+  
+  .tags-widget a {
+    color: #aaa;
+    display: inline-block;
+    padding: 10px 12px;
+    border-radius: 2px;
+    background-color: #363636;
+    font-size: 14px;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    margin: 10px 10px 0 0;
+  }
+  
+  .tags-widget a:hover {
+    text-decoration: none;
+    color: #26264b;
+    background-color: #ee1515;
+  }
+  
+  .subscribe-widget form {
+    margin-bottom: 10px;
+  }
+  
+  .subscribe-widget input {
+    font-size: 14px;
+    padding: 0px 10px;
+    background-color: #444;
+    border: none;
+    line-height: 0;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .subscribe-widget input:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .subscribe-widget button {
+    background: #ee1515;
+    border: none;
+    padding: 9px 14px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: -10px;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .subscribe-widget button i {
+    color: #fff;
+  }
+  
+  .subscribe-widget .social-nav {
+    margin-top: 32px;
+  }
+  
+  .subscribe-widget .social-nav a {
+    display: inline-block;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #fff;
+    color: #ddd;
+    background-color: #444;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-right: 10px;
+  }
+  
+  .subscribe-widget .social-nav a i {
+    color: #ddd;
+  }
+  
+  .subscribe-widget .social-nav a:hover {
+    background-color: #ee1515;
+  }
+  
+  /*-----------------------------------
+      9 - Foot Note
+  ------------------------------------*/
+  .foot-note {
+    padding: 35px 0;
+    background-color: #ee1515;
+    color: #26264b;
+  }
+  
+  .foot-note a {
+    color: #26264b;
+  }
+  
+  .foot-note a:last-child {
+    margin-left: 30px;
+  }
+  
+  .foot-note a.fh5-link {
+    margin-left: 0;
+  }
+  /*----------------------------
+  10 - modal form
+  -------------------------------*/
+
+  .modal {
+    min-width: 90%;
+    max-height: 800px;
+    box-shadow: #363636;
+  }
+  .modal-dialog {
+    padding: 20px 0;
+  }
+  .close {
+    color: #ee1515;
+    font-weight: 600;
+    font-size: 30px;
+  }
+  .form-group input{
+    color: #000000;
+  }
+  .form-group input:focus{
+    color: #000000;
+  }
+
+  /* packages */
+
+  .price-card{
+    border: 1px solid #0c013d5c;
+    border-radius: 10px;
+    padding: 12%;
+    text-align: left;
+    background-color: #fff;
+    transition: transform 0.2s;
+  }
+  .price-card h4{
+    margin-left: 20px;
+    color: #0c013d;
+    font-size: 22px;
+  }
+  .price-card .pkg-pkg-btn{
+    width: 59%;
+    margin: 40px 0;
+    padding: 15px;
+  }
+  .price-card h6{
+    margin: 15px 0;
+  }
+  .price-card .fa-circle-check{
+    color: #036108;
+  }
+  .price-card:hover{
+    transform: scale(1.15);
+  }
+  #packages{
+    max-width: 100%;
+    padding: 5% 12%;
+  }
+  #packages .pkg-header{
+    margin-bottom: 80px;
+  }
+  #packages .pkg-header h2{
+    font-family: 900;
+    font-size: 30px;
+    color: #0c013d;
+    margin-bottom: 20px;
+  }

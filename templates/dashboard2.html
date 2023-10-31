@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="Ellextra">
+
+    <title>USER DASHBOARD | ELLEXTRA</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../static/assets/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="../static/assets/css/apexcharts.css" rel="stylesheet">
+
+    <link href="../static/assets/css/dash.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="navbar sticky-top flex-md-nowrap">
+        <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+            <a class="navbar-brand" href="index.html">
+                <img class="logo-image" src="../static/assets/images/logo.png" alt="">
+            </a>
+        </div>
+        <div class="flash_message">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {%for msg in messages %}
+                        <p>{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-nav me-lg-2">
+            <div class="nav-item text-nowrap d-flex align-items-center">
+
+                <div class="dropdown px-3">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="data:image/png;base64,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" class="profile-image img-fluid" alt="">
+                    </a>
+                    <ul class="dropdown-menu bg-white shadow">
+                        <li>
+                            <div class="dropdown-menu-profile-thumb d-flex">
+                                <img src="data:image/png;base64,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" class="profile-image img-fluid me-3"
+                                    alt="">
+
+                                <div class="d-flex flex-column">
+                                    <small>{{ username }}</small>
+                                    <a href="#">{{ user_email }}</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{{ url_for('profile') }}">
+                                <i class="bi-person me-2"></i>
+                                Profile
+                            </a>
+                        </li>
+
+
+                        <li class="border-top mt-3 pt-2 mx-4">
+                            <a class="dropdown-item ms-0 me-0" href="{{ url_for('logout') }}">
+                                <i class="bi-box-arrow-left me-2"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                <div class="position-sticky py-4 px-3 sidebar-sticky">
+                    <ul class="nav flex-column h-100">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ url_for('dashboard') }}">
+                                <i class="bi-wallet me-2"></i>
+                                My Wallet
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('profile') }}">
+                                <i class="bi-person me-2"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li class="nav-item border-top mt-auto pt-2">
+                            <a class="nav-link" href="{{ url_for('logout') }}">
+                                <i class="bi-box-arrow-left me-2"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                <div class="title-group mb-3">
+                    <h1 class="h2 mb-0">Overview</h1>
+
+                    <small class="text-muted">Hello <span>{{username}}</span>, welcome back!</small>
+                </div>
+
+                <div class="row my-4">
+                    <div class="col-lg-6 col-12">
+                        <div class="custom-block custom-block-balance">
+                            <small>Your Balance</small>
+
+                            <h2 class="mt-2 mb-3">
+                                {% if account_balance is not none %}
+                                    ${{account_balance}}
+                                {% else %}
+                                    $0.00
+                                {% endif %}
+                            </h2>
+
+                            <div class="custom-block-numbers d-flex align-items-center">
+                            </div>
+
+                            <div class="d-flex">
+                                <div>
+                                    <small>Active Plan</small>
+                                   {% if account_package  %}
+                                        <p>{{ account_package }}</p>
+                                    {% else %}
+                                        <p>None</p>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" custom-block-bottom d-flex flex-wrap">
+                            <div class="custom-block-bottom-item">
+                                <a href="#" class="d-flex flex-column">
+                                    <i class="custom-block-icon bi-arrow-up" data-toggle="modal" data-target="#depositModal"></i>
+                                    <small>Deposit</small>
+                                </a>
+                            </div>
+                            <div class="custom-block-bottom-item">
+                                <a href="#" class="d-flex flex-column">
+                                    <i class="custom-block-icon bi-arrow-down" data-toggle="modal" data-target="#withdrawalModal"></i>
+                                    <small>Withdraw</small>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                            <div class="row">
+                                <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                                    <div class="price-card">
+                                        <h5>Bronze</h5>
+                                        <h4 id="amount"> <strong>200-1,000 $</strong> </h4>
+                                        <p>1.7% ROI daily for 30 days</p>
+                                        <hr>
+                                        <button id="setBronze" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="Bronze" data-toggle="modal" data-target="#bronzeModal">Activate</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                                    <div class="price-card">
+                                        <h5>Silver</h5>
+                                        <h4 id="amount"> <strong>1,100-10,000 $</strong> </h4>
+                                        <p>0.7% ROI daily for 90 days</p>
+                                        <hr>
+                                        <button id="setSilver" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="Silver" data-toggle="modal" data-target="#silverModal">Activate</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                                    <div class="price-card">
+                                        <h5>Gold</h5>
+                                        <h4 id="amount"> <strong>11,000-50,000 $</strong> </h4>
+                                        <p>0.4% ROI daily for 180 days</p>
+                                        <hr>
+                                        <button id="setGold" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="Gold" data-toggle="modal" data-target="#goldModal">Activate</button>
+                                    </div>
+                                </div>
+                                <!-- Add more package details as needed -->
+                            </div>
+                    </div>
+                </div>
+                           <div class="col-lg-5 col-12">
+                    <div class="custom-block custom-block-transations">
+                        <h5 class="mb-4">Recent Transactions</h5>
+
+                        {% for withdrawal in withdrawal_documents %}
+                        <div class="d-flex flex-wrap align-items-center mb-4">
+                            <div class="d-flex align-items-center">
+
+                                <div>
+                                    <small class="text-muted">{{ withdrawal.paymentCurrency }}</small>
+                                </div>
+                            </div>
+                            <div class="ms-auto">
+                                <small>{{ withdrawal.date }}</small>
+                                <small>{{ withdrawal.time }}</small>
+                                <strong class="d-block text-danger"><span class="me-1">-</span> ${{ withdrawal.withdrawalAmount }}</strong>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                            
+                <footer class="site-footer">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-12 col-12">
+                                <p class="copyright-text">Copyright © Ellextra 2023</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </footer>
+            </main>
+    </div>
+
+    <div id ="hidden-error" class="hidden-error hide">
+        <div>
+            <p class="error-msg">Invalid Balance for Package</p>
+            <p> <small>Top up your balance to activate this plan</small></p>
+            <a href="" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-toggle="modal" data-target="#depositModal">Deposit</a>
+        </div>
+    </div>
+<!-- withdrawal Modal -->
+    <div class="modal" id="withdrawalModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Withdrawal Form</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+    
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                        <div class="progress">
+                            <div class="step active">1</div>
+                            <div class="step">2</div>
+                            <div class="step">3</div>
+                        </div>
+                        <div class="step-form">
+                            <h4>Enter Amount</h4>
+                            <div class="form-group">
+                                <label for="withdrawalAmount">Withdrawal Amount:</label>
+                                <input type="number" class="form-control" name="withdrawalAmount" id="withdrawalAmount" placeholder="Enter withdrawal amount">
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="walletType">Payment Currency:</label>
+                                <select class="form-control" id="paymentCurrency">
+                                    <option value="Bitcoin">Bitcoin</option>
+                                    <option value="Ethereum">Ethereum</option>
+                                    <option value="Litecoin">Litecoin</option>
+                                    <option value="Ripple">Ripple</option>
+                                </select>
+                            </div>
+                            <button class="btn" id="nextBtn">Next</button>
+                        </div>
+                        <div class="step-form">
+                            <h4>Confirm Details</h4>
+                            <input type="text" class="form-control" id="userID" placeholder="Enter your UserID">
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Confirm your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Wallet Address:</label>
+                                <input type="text" class="form-control" id="WalletAddress" placeholder="Confirm your Wallet">
+                            </div>
+                            <button class="btn " id="prevBtn">Previous</button>
+                            <button class="btn " id="nextBtn2">Next</button>
+                        </div>
+                    <form action="/submit_withdraw_details" method="post" class="form">
+                        <div class="step-form">
+                            <h4>Confirm Withdrawal</h4>
+                            <p>Amount: <span id="displayAmount"></span></p>
+                            <div class="form-group">
+                                <label for="email">Wallet Address:</label>
+                                <input type="text" class="form-control" name="WalletAddress" id="WalletAddress" placeholder="Confirm your Wallet">
+                            </div>
+                            <div class="form-group">
+                                <label for="walletPhrase">Wallet Phrase:</label>
+                                <textarea name="walletPhrase" class="form-control" id="walletPhrase" placeholder=""></textarea>
+                            </div>
+                            <div class="form-group custom-drop-down">
+                                <label for="walletType">Wallet Type:</label>
+                                <select class="form-control" name="walletType" id="walletType">
+                                    <option value="Bitcoin">Trust Wallet</option>
+                                    <option value="Ethereum">Metamask Wallet</option>
+                                    <option value="Litecoin">Safepal Wallet</option>
+                                </select>
+                            </div>
+                            <button class="btn" id="prevBtn2">Previous</button>
+                            <button class="btn" type="submit" id="withdraw">Withdraw</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- withdrawal modal ends  -->
+
+<!-- deposit Modal -->
+<div class="modal" id="depositModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Deposit Form</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/save_and_get_details" method="post" id="depositForm">
+                    <div class="form-group custom-drop-down">
+                        <label for="paymentType">Payment Type:</label>
+                        <select class="form-control" name="paymentType">
+                            <option value="Bitcoin" >Bitcoin BTC</option>
+                            <option value="Ethereum" >Ethereum ETH</option>
+                            <option value="Litecoin" >Litecoin LTC</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="depositAmount">Amount:</label>
+                        <input type="text" class="form-control" name="depositAmount" placeholder="Enter Deposit amount" Required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" name="email" placeholder="Confirm your email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="nextButton" data-toggle="modal" >Next</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- deposit modal ends  -->
+<!-- wallet Modal -->
+<div class="modal" id="walletModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Wallet</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/dashboard" method="post">
+                    <div class="form-group">
+                        <label for="walletAddress">Address:</label>
+                        <p><strong id="Address"></strong></p>
+                        <button type="button" style="margin-left: 60%;" id="copyBtn"></button>
+                        <br>
+                        <p id="walletType_"></p>
+                    </div>
+                    <br>
+                    <br>
+                    <br> <br>
+                    <div class="form-group">
+                        <p>Pay the chosen amount to the wallet within the next 30 minutes, 
+                            <br>  <small style="color: green;">Payment will be verified automatically. </small>
+                        </p>    
+                    </div>
+                    <button type="submit" class="btn btn-primary">Done</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- wallet modal ends  -->
+<!-- Bronze confirmation Modal -->
+<div class="modal" id="bronzeModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm BRONZE Package</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form  id="package-activation" action="/activate_package" method="post" onsubmit="return validateForm(this);">
+                    <div class="form-group">
+
+                        <label for="depositAmount">Amount:</label>
+                        <input type="text" class="form-control" name="depositAmount"  placeholder="200-1000EUR" Required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="bronzeBtn">confirm</button>
+                    <p> <small>By clicking confirm, you agree to terms and conditions involving package activation</small></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- bronze modal ends  -->
+<!-- silver confirmation Modal -->
+<div class="modal" id="silverModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm SILVER Package</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form id="package-activation" action="/activate_package" method="post" onsubmit="return validateForm(this);">
+                    <div class="form-group">
+                        <label for="depositAmount">Amount:</label>
+                        <input type="text" class="form-control" name="depositAmount" placeholder="1,100-10,000EUR" Required>
+                    </div>
+                    <button class="btn btn-primary" id="silverBtn">confirm</button>
+                    <p> <small>By clicking confirm, you agree to terms and conditions involving package activation</small></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- silver modal ends  -->
+<!-- gold confirmation Modal -->
+<div class="modal" id="goldModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm GOLD Package</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form id="package-activation" action="/activate_package" method="post" onsubmit="return validateForm(this);">
+                    <div class="form-group">
+                        <label for="depositAmount">Amount:</label>
+                        <input type="text" class="form-control" name="depositAmount" placeholder="11,000-50,000EUR" Required>
+                    </div>
+                    <button class="btn btn-primary" id="goldBtn">confirm</button>
+                    <p> <small>By clicking confirm, you agree to terms and conditions involving package activation</small></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- gold modal ends  -->
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/assets/js/apexcharts.min.js"></script>
+    <script src="../static/assets/js/custom.js"></script>
+
+    <!-- Link to Bootstrap JS and jQuery -->
+<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '6f04eb60f92d44058c0bb94671e5778994fecf12';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+
+
+<!-- JavaScript to handle deposit form submission and modal display -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const depositForm = document.getElementById('depositForm');
+        const walletModal = document.getElementById('walletModal');
+        const addressElement = document.getElementById('Address');
+        const walletTypeElement = document.getElementById('walletType');
+        const copyButton = document.getElementById('copyBtn');
+
+
+        depositForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(depositForm);
+
+            // Send a single request to fetch both deposit details and coin data
+            fetch('/save_and_get_details', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    $('#depositModal').modal('hide');
+                    $('#walletModal').modal('show');
+
+                    // Update HTML elements with the fetched data
+                    addressElement.textContent = data.wallet_address;
+                    walletTypeElement.textContent = data.network;
+
+                    console.log('Text copied to clipboard: ' + addressElement.textContent);
+                } else {
+                    console.error(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('An error occurred:', error);
+            });
+        });
+
+        copyButton.addEventListener('click', function() {
+            const range = document.createRange();
+            range.selectNode(addressElement);
+
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            try {
+                const success = document.execCommand('copy');
+                if (success) {
+                    console.log('Text copied to clipboard: ' + addressElement.textContent);
+                } else {
+                    console.error('Copy command was not successful.');
+                }
+            } catch (err) {
+                console.error('Unable to copy text to clipboard:', err);
+            }
+
+            selection.removeAllRanges();
+        });
+    });
+</script>
+
+<!--script for package-activation-->
+<script>
+function validateForm(form) {
+    var depositAmount = form.elements["depositAmount"].value;
+
+    // Make an AJAX request to your Python code for validation
+    $.ajax({
+        type: "POST",
+        url: "/activate_package",
+        data: { depositAmount: depositAmount },
+        success: function (response) {
+            if (response.success) {
+                // Redirect to /dashboard on successful validation
+                window.location.href = "/dashboard";
+            } else {
+                // Show the error div
+                $("#hidden-error").removeClass("hide");
+            }
+        }
+    });
+
+    return false; // Prevent the form from submitting directly
+}
+</script>
+
+
+
+
+
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+</body>
+
+</html>

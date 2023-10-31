@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Document title -->
+    <title>ELLEXTRA | YOUR INVESTMENT AWAITS</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i%7CRajdhani:400,600,700" rel="stylesheet">
+
+    <!-- font AWESOME  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Plugins Stylesheets -->
+    <link rel="stylesheet" href="../static/assets/css/loader/loaders.css">
+    <link rel="stylesheet" href="../static/assets/css/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="../static/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/assets/css/aos/aos.css">
+    <link rel="stylesheet" href="../static/assets/css/swiper/swiper.css">
+    <link rel="stylesheet" href="../static/assets/css/lightgallery.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="../static/assets/css/styles.css">
+    <!-- Responsive Stylesheet -->
+    <link rel="stylesheet" href="../static/assets/css/responsive.css">
+</head>
+<body>
+    <!-- Header Start -->
+    <header class="position-absolute w-100">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+
+                 <div class="flash_message">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {%for msg in messages %}
+                                <p>{{msg}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="group d-flex align-items-center">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation"><span
+                            class="navbar-toggler-icon"></span></button>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#whyChooseUs">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Header End -->
+    <!-- Hero Start -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 offset-md-1 col-md-11">
+                    <div class="swiper-container hero-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide slide-content d-flex align-items-center">
+                                <div class="single-slide">
+                                    <h1 data-aos="fade-right" data-aos-delay="200">Trusted<br> By thousands
+                                    </h1>
+                                    <p data-aos="fade-right" data-aos-delay="600">A proven Track Record of
+                                        Delivering Results with over 15 years <br> of experience in the financial
+                                        <br>
+                                        industry, helping thousands of clients achieve and secure <br> their future.
+                                    </p>
+                                    <a data-aos="fade-right" data-aos-delay="900" href="#about" class="btn btn-primary">LEARN MORE</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide slide-content d-flex align-items-center">
+                                <div class="single-slide">
+                                    <h1 data-aos="fade-right" data-aos-delay="200">Comprehensive<br> Wealth management services
+                                    </h1>
+                                    <p data-aos="fade-right" data-aos-delay="600">Grow your Wealth with our expertise
+                                        <br>
+                                        Let's discuss your dreams and map out a strategy to turn them into reality.
+                                    </p>
+                                    <a data-aos="fade-right" data-aos-delay="900" href="#about" class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="diag-bg"></div>
+    </section>
+    <!-- Hero End -->
+        <!-- Call To Action Start -->
+        <section class="cta" data-aos="fade-up" data-aos-delay="0">
+            <div class="container">
+                <div class="cta-content d-xl-flex align-items-center justify-content-around text-center text-xl-left">
+                    <div class="content" data-aos="fade-right" data-aos-delay="200">
+                        <h2>READY TO GET STARTED?</h2>
+                        <p>
+                            Contact us today for a no-obligation <br> consultation.
+                            Let's discuss your dreams and map out a strategy to turn them into reality. 
+                        </p>
+                    </div>
+                    <div class="subscribe-btn" data-aos="fade-left" data-aos-delay="400" data-aos-offset="0">
+                        <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call To Action End -->
+         <!-- Services Start -->
+    <section class="services" id="whyChooseUs">
+        <div class="container">
+            <div class="title text-center">
+
+                <h1 class="title-blue">Why Choose Us</h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
+                            <img class="mr-4" src="../static/assets/images/service1.png" alt="Web Development">
+                            <div class="media-body">
+                                <h5>Proven Track Record</h5>
+                                We boast of a long history of success with many users having achieved their financial
+                                goals through our platform
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                            <img class="mr-4" src="../static/assets/images/service2.png" alt="Web Development">
+                            <div class="media-body">
+                                <h5>Security measures</h5>
+                                We prioritize the security of user data and financial transactions ensuring a safe online 
+                                environment
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                            <img class="mr-4" src="../static/assets/images/service3.png" alt="Web Development">
+                            <div class="media-body">
+                                <h5>Innovation</h5>
+                                We are known for our innovative approaches to online earning, staying ahead of the curve
+                                in the ever-evolving digital landscape
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
+                            <img class="mr-4" src="../static/assets/images/service4.png" alt="Web Development">
+                            <div class="media-body">
+                                <h5>Regular Updates</h5>
+                                We ensure to stay up to date with the latest online trends and opportunities..
+                                Keeping Users informed.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="media" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                            <img class="mr-4" src="../static/assets/images/service1.png" alt="Web Development">
+                            <div class="media-body">
+                                <h5>User-Friendly Interface</h5>
+                                We provide an easy-to-navigate platform, making it accessible to 
+                                both beginers and experienced users. 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="media" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                            <img class="mr-4" src="../static/assets/images/service5.png" alt="Web Development">
+                            <div class="media-body">
+                                <h5>Community and Support</h5>
+                                Users can connect with a supportive community and access customer support for guidance and assistance.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services End -->
+    <!-- Featured Start -->
+    <section class="featured" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-right" data-aos-delay="400" data-aos-duration="800">
+                    <div class="title">
+                        <h6 class="title-primary">About </h6>
+                        <h1 class="title-blue">INTRODUCTION</h1>
+                    </div>
+                    <p>  
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras sollicitudin mauris sit amet egestas dignissim. Cras non laoreet nisl.
+                    </p>
+                    <h3>Our Journey</h3>   
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras sollicitudin mauris sit amet egestas dignissim.
+                        Cras non laoreet nisl. Vestibulum ullamcorper vehicula diam et gravida.
+                    </p>
+                    <h3>What We Offer</h3> 
+                    <p> 
+                        ELorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras sollicitudin mauris sit amet egestas dignissim.
+                        Cras non laoreet nisl. Vestibulum ullamcorper vehicula diam et gravida.
+                    </p>    
+                    <h3>Your Benefits</h3>                            
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras sollicitudin mauris sit amet egestas dignissim.
+                        Cras non laoreet nisl. Vestibulum ullamcorper vehicula diam et gravida.
+                        Praesent sapien ex, pellentesque quis placerat faucibus, fringilla eu felis.
+                    </p>    
+                    <h3>Join Our Community</h3>                            
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras sollicitudin mauris sit amet egestas dignissim.
+                        Cras non laoreet nisl. Vestibulum ullamcorper vehicula diam et gravida.
+                        Praesent sapien ex, pellentesque quis placerat faucibus, fringilla eu felis
+                    </p>
+                    <h3>Our Vision</h3>                            
+                    <p>
+                        OLorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Cras sollicitudin mauris sit amet egestas dignissim.
+                        Cras non laoreet nisl. Vestibulum ullamcorper vehicula diam et gravida.
+                        Praesent sapien ex, pellentesque quis placerat faucibus, fringilla eu felis.
+                    </p>
+                </div>
+                <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
+                    <div class="featured-img">
+                        <img class="featured-big" src="../static/assets/images/featured-img1.jpg" alt="Featured 1">
+                        <img class="featured-small" src="../static/assets/images/featured-img2.jpg" alt="Featured 2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured End -->
+    <section id="packages" class="container mt-5">
+        <div class="pkg-header">
+            <h2>Packages</h2>
+        </div> <br> <br>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                <div class="price-card">
+                    <h5>Bronze</h5>
+                    <h4 id="amount"> <strong>200-1,000 $</strong> </h4>
+                    <p>1.7% ROI daily</p>
+                    <hr>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Active for 30 Days</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Automatic Profits</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>51% Total Return</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>20% Referral Bonus</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Weekly Withdrawal</strong></h6>
+                    <button id="setBronze" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="Bronze">Activate</button>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                <div class="price-card">
+                    <h5>Silver</h5>
+                    <h4 id="amount"> <strong>1,100-10,000 $</strong> </h4>
+                    <p>0.7% ROI daily</p>
+                    <hr>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>63% Total Return</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Active for 90 Days</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Weekly Withdrawal</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>50% Referral Bonus</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Automatic Profit</strong></h6>
+                    <button id="setSilver" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="Silver">Activate</button>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800">
+                <div class="price-card">
+                    <h5>Gold</h5>
+                    <h4 id="amount"> <strong>11,000-50,000 $</strong> </h4>
+                    <p>0.4% ROI daily</p>
+                    <hr>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>72% Total Return</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>180 Days Active</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Withdraw Anytime</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>60% Referral Bonus</strong></h6>
+                    <h6><i class="fa-solid fa-circle-check"></i> <strong>Share holders Benefits</strong></h6>
+                    <button id="setGold" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-block package-btn pkg-pkg-btn" data-package="Gold">Activate</button>
+                </div>
+            </div>
+            <!-- Add more package details as needed -->
+        </div>
+    </section>
+        <!-- Testimonial and Clients Start -->
+        <section class="testimonial-and-clients">
+            <div class="container">
+                <div class="testimonials">
+                    <div class="swiper-container test-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide text-center">
+                                <div class="row">
+                                    <div class="offset-lg-1 col-lg-10">
+                                        <div class="test-img" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0"><img
+                                                src="../static/assets/images/test1.png" alt="Testimonial 1"></div>
+                                        <h5 data-aos="fade-up" data-aos-delay="200" data-aos-duration="600"
+                                            data-aos-offset="0">John</h5>
+                                        <span data-aos="fade-up" data-aos-delay="400" data-aos-duration="600"
+                                            data-aos-offset="0"></span>
+                                        <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="600"
+                                            data-aos-offset="0">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide text-center">
+                                <div class="row">
+                                    <div class="offset-lg-1 col-lg-10">
+                                        <div class="test-img" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0"><img
+                                                src="../static/assets/images/test2.jpg" alt="Testimonial 1"></div>
+                                        <h5 data-aos="fade-up" data-aos-delay="200" data-aos-duration="600"
+                                            data-aos-offset="0">Jessica</h5>
+                                        <span data-aos="fade-up" data-aos-delay="400" data-aos-duration="600"
+                                            data-aos-offset="0"></span>
+                                        <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="600"
+                                            data-aos-offset="0"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide text-center">
+                                <div class="row">
+                                    <div class="offset-lg-1 col-lg-10">
+                                        <div class="test-img" data-aos="fade-up" data-aos-delay="0" data-aos-offset="0"><img
+                                                src="../static/assets/images/test3.jpg" alt="Testimonial 1"></div>
+                                        <h5 data-aos="fade-up" data-aos-delay="200" data-aos-duration="600"
+                                            data-aos-offset="0">Philips</h5>
+                                        <span data-aos="fade-up" data-aos-delay="400" data-aos-duration="600"
+                                            data-aos-offset="0"></span>
+                                        <p data-aos="fade-up" data-aos-delay="600" data-aos-duration="600"
+                                            data-aos-offset="0">
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="test-pagination"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Testimonial and Clients End -->
+            <!-- Footer Start -->
+    <footer>
+        <!-- Widgets Start -->
+        <div class="footer-widgets" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="single-widget contact-widget" data-aos="fade-up" data-aos-delay="0">
+                            <h6 class="widget-tiltle">&nbsp;</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Cras sollicitudin mauris sit amet egestas dignissim.
+                                Cras non laoreet nisl. Vestibulum ullamcorper vehicula diam et gravida.
+                                Praesent sapien ex, pellentesque quis placerat faucibus, fringilla eu felis
+                            </p>
+                            <div class="media">
+                                <i class="fa fa-map-marker"></i>
+                                <div class="media-body ml-3">
+                                    <h6>Address</h6>
+                                    Lorem ipsum dolor sit amet<br>
+                                    Lorem ipsum dolor sit amet
+                                </div>
+                            </div>
+                            <div class="media">
+                                <i class="fa fa-envelope-o"></i>
+                                <div class="media-body ml-3">
+                                    <h6>Have any questions?</h6>
+                                    <a href="">
+                                        Lorem ipsum dolor sit amet
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="single-widget subscribe-widget" data-aos="fade-up" data-aos-delay="800">
+                            <h6 class="widget-tiltle">Subscribe NOW!</h6>
+                            <p>Sign up for our mailing list to get latest updates and offers</p>
+                            <form class="" method="get">
+                                <div class="input-group">
+                                    <input class="field form-control" name="subscribe" type="email"
+                                        placeholder="Email Address">
+                                    <span class="input-group-btn">
+                                        <button type="submit" name="submit-mail"><i class="fa fa-check"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+                            <p>We respect your privacy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Widgets End -->
+        <!-- Foot Note Start -->
+        <div class="foot-note">
+            <div class="container">
+                <div
+                    class="footer-content text-center text-lg-left d-lg-flex justify-content-between align-items-center">
+                    <p class="mb-0" data-aos="fade-right" data-aos-offset="0">&copy; 2023 Lorem ipsum dolor sit amet</p>
+                    <p class="mb-0" data-aos="fade-left" data-aos-offset="0"><a href="#">Terms Of Use</a><a
+                            href="#about">Privacy & Security
+                            Statement</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Foot Note End -->
+    </footer>
+    <!-- Footer Endt -->
+    <!-- login modal form  -->
+    <div class="modal" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Login Form</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+    
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="/submit_login_details" method="post">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <p>New User? <a href="#"  data-toggle="modal" data-target="#signupModal">Sign Up</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal form ends -->
+
+    <!-- modal signup  -->
+    <div class="modal" id="signupModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Sign Up</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+    
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="/signup" method="post">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control"name="username" placeholder="Enter your username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="useremail">Email:</label>
+                            <input type="email" class="form-control" name="useremail" placeholder="Enter your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rpt-password">Repeat Password:</label>
+                            <input type="password" class="form-control" name="rpt-password" placeholder="Enter your password again" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                        <p>already have an account? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">login</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--jQuery-->
+    <script src="../static/assets/js/jquery-3.3.1.js"></script>
+    <!--Plugins-->
+    <script src="../static/assets/js/bootstrap.bundle.js"></script>
+    <script src="../static/assets/js/loaders.css.js"></script>
+    <script src="../static/assets/js/aos.js"></script>
+    <script src="../static/assets/js/swiper.min.js"></script>
+    <script src="../static/assets/js/lightgallery-all.min.js"></script>
+    <!--custom Script-->
+    <script src="../static/assets/js/main.js"></script>
+
+    <!-- Main JS -->
+	<script src="../static/assets/js/app.min.html"></script>
+
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '6f04eb60f92d44058c0bb94671e5778994fecf12';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+</body>
+</html>
