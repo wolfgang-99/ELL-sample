@@ -19,9 +19,32 @@
 
     <link href="../static/assets/css/admin-dash.css" rel="stylesheet">
 
-
+    <style>
+    .flash_message {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0 0, 0, 5); /* Adjust the background color and opacity (last value) as needed */
+        z-index: 9999; /* Ensure it's displayed on top of other content */
+    }
+</style>
 </head>
 <body>
+    <div class="flash_message">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-dismissible alert-danger fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <ul class="list-unstyled">
+                {% for msg in messages %}
+                <strong> <li>{{ msg }}</li> </strong>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
     <header class="navbar sticky-top flex-md-nowrap">
         <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
             <a class="navbar-brand" href="{{ url_for('Home') }}">
